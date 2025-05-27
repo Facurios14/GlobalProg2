@@ -1,67 +1,34 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public class Empresa extends Base{
     private String nombre;
     private String razonSocial;
     private int cuil;
-    private List<Sucursal> sucursales;
-    private List<Promocion> promociones;
+    private Set<Sucursal> sucursales = new HashSet<>();
 
-    public Empresa(String nombre, String razonSocial, int cuil) {
-        this.nombre = nombre;
-        this.razonSocial = razonSocial;
-        this.cuil = cuil;
-        this.sucursales = new ArrayList<>();
-        this.promociones = new ArrayList<>();
-
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getRazonSocial() {
-        return razonSocial;
-    }
-
-    public void setRazonSocial(String razonSocial) {
-        this.razonSocial = razonSocial;
-    }
-
-    public int getCuil() {
-        return cuil;
-    }
-
-    public void setCuil(int cuil) {
-        this.cuil = cuil;
-    }
-
-    public List<Sucursal> getSucursales() {
-        return sucursales;
-    }
-
-    public void setSucursales(List<Sucursal> sucursales) {
-        this.sucursales = sucursales;
-    }
-
-    public void addSucursal (Sucursal sucursal){
+    public void addSucursal(Sucursal sucursal){
         this.sucursales.add(sucursal);
     }
-    public List<Promocion> getPromociones() {
-        return promociones;
-    }
-
-    public void setPromociones(List<Promocion> promociones) {
-        this.promociones = promociones;
-    }
-    public void addPromocion(Promocion promocion){
-        this.promociones.add(promocion);
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "nombre='" + nombre + '\'' +
+                ", razonSocial='" + razonSocial + '\'' +
+                ", cuil=" + cuil +
+                '}';
     }
 }

@@ -1,43 +1,33 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public class Provincia extends Base{
     private String nombre;
     private Pais pais;
-    private List<Localidad> localidades;
+    private Set<Localidad> localidades = new HashSet<>();
 
-    public Provincia(String nombre, Pais pais) {
-        this.nombre = nombre;
-        this.pais = pais;
-        this.localidades = new ArrayList<>();
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
-
-    public List<Localidad> getLocalidades() {
-        return localidades;
-    }
-
-    public void setLocalidades(List<Localidad> localidades) {
-        this.localidades = localidades;
-    }
     public void addLocalidad(Localidad localidad){
         this.localidades.add(localidad);
+    }
+
+    @Override
+    public String toString() {
+        return "Provincia{" +
+                "nombre='" + nombre + '\'' +
+                ", pais=" + pais +
+                '}';
     }
 }

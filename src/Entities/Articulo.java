@@ -1,53 +1,38 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public abstract class Articulo extends Base{
     protected String denominacion;
     protected double precioVenta;
-    private UnidadMedida unidadMedida;
-    private List<Imagen> imagenes;
+    protected UnidadMedida unidadMedida;
+    protected Imagen imagen;
+    protected Set<Promocion> promociones = new HashSet<>();
 
-    public Articulo(String denominacion, double precioVenta, UnidadMedida unidadMedida) {
-        this.denominacion = denominacion;
-        this.precioVenta = precioVenta;
-        this.unidadMedida = unidadMedida;
-        this.imagenes = new ArrayList<>();
+    public void addPromocion(Promocion promocion){
+        this.promociones.add(promocion);
     }
 
-    public String getDenominacion() {
-        return denominacion;
-    }
-
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
-
-    public double getPrecioVenta() {
-        return precioVenta;
-    }
-
-    public void setPrecioVenta(double precioVenta) {
-        this.precioVenta = precioVenta;
-    }
-
-    public UnidadMedida getUnidadMedida() {
-        return unidadMedida;
-    }
-
-    public void setUnidadMedida(UnidadMedida unidadMedida) {
-        this.unidadMedida = unidadMedida;
-    }
-
-    public List<Imagen> getImagenes() {
-        return imagenes;
-    }
-
-    public void setImagenes(List<Imagen> imagenes) {
-        this.imagenes = imagenes;
-    }
-    public void addImagen (Imagen imagen){
-        this.imagenes.add(imagen);
+    @Override
+    public String toString() {
+        return "Articulo{" +
+                "denominacion='" + denominacion + '\'' +
+                ", precioVenta=" + precioVenta +
+                ", unidadMedida=" + unidadMedida +
+                ", imagen=" + imagen +
+                '}';
     }
 }

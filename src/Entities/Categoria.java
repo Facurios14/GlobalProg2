@@ -1,46 +1,33 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public class Categoria extends Base{
     private String denominacion;
-    private List<Articulo> articulos;
-    private List<Categoria> subCategorias;
+    private Categoria padre;
+    private Set<Articulo> articulos = new HashSet<>();
 
-    public Categoria(String denominacion) {
-        this.denominacion = denominacion;
-        this.articulos = new ArrayList<>();
-        this.subCategorias = new ArrayList<>();
-    }
-
-    public String getDenominacion() {
-        return denominacion;
-    }
-
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
-
-    public List<Articulo> getArticulos() {
-        return articulos;
-    }
-
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
-    }
     public void addArticulo(Articulo articulo){
         this.articulos.add(articulo);
     }
 
-    public List<Categoria> getSubCategorias() {
-        return subCategorias;
-    }
-
-    public void setSubCategorias(List<Categoria> subCategorias) {
-        this.subCategorias = subCategorias;
-    }
-    public void addSubCategoria(Categoria categoria){
-        this.subCategorias.add(categoria);
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "denominacion='" + denominacion + '\'' +
+                ", padre=" + padre +
+                '}';
     }
 }
