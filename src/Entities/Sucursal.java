@@ -35,11 +35,6 @@ public class Sucursal extends Base{
     @Override
     public String toString() {
         return "Sucursal{" +
-                "nombre='" + nombre + '\'' +
-                ", horarioApertura=" + horarioApertura +
-                ", horarioCierre=" + horarioCierre +
-                ", empresa=" + empresa +
-                ", domicilio=" + domicilio +
-                '}';
+                "nombre='" + nombre +'}';
     }
 }

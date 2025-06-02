@@ -1,9 +1,6 @@
 package Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.HashSet;
@@ -18,11 +15,13 @@ public class Empresa extends Base{
     private String nombre;
     private String razonSocial;
     private int cuil;
+    @Builder.Default
     private Set<Sucursal> sucursales = new HashSet<>();
 
-    public void addSucursal(Sucursal sucursal){
+    public void addSucursal(Sucursal sucursal) {
         this.sucursales.add(sucursal);
     }
+
     @Override
     public String toString() {
         return "Empresa{" +
