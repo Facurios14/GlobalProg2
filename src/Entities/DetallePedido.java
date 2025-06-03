@@ -22,8 +22,8 @@ public class DetallePedido extends Base{
         return "DetallePedido{" +
                 "cantidad=" + cantidad +
                 ", subTotal=" + subTotal +
-                ", articulo=" + articulo +
-                ", pedido=" + pedido +
+                ", articulo=" + (articulo != null ? articulo.getDenominacion() : "null") +
                 '}';
     }
+
 }

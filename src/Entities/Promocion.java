@@ -1,17 +1,12 @@
 package Entities;
 
 import Enums.TipoPromocion;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -29,6 +24,7 @@ public class Promocion {
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
     private Sucursal sucursal;
+    @Builder.Default
     private Set<Articulo> articulos = new HashSet<>();
 
     public void addArticulo(Articulo articulo){
@@ -39,15 +35,10 @@ public class Promocion {
     public String toString() {
         return "Promocion{" +
                 "denominacion='" + denominacion + '\'' +
-                ", FechaDesde=" + FechaDesde +
-                ", FechaHasta=" + FechaHasta +
-                ", HoraDesde=" + HoraDesde +
-                ", HoraHasta=" + HoraHasta +
-                ", descripcionDescuento='" + descripcionDescuento + '\'' +
                 ", precioPromocional=" + precioPromocional +
-                ", tipoPromocion=" + tipoPromocion +
-                ", sucursal=" + sucursal +
+                ", sucursal=" + (sucursal != null ? sucursal.getNombre() : "null") +
                 '}';
     }
+
 }
 

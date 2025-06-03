@@ -1,15 +1,10 @@
 package Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -25,6 +20,7 @@ public class Cliente extends Base{
     private String email;
     private LocalDate fechaNacimiento;
     private Usuario usuario;
+    @Builder.Default
     private Set<Pedido> pedidos = new HashSet<>();
     private Set<Domicilio> domicilios = new HashSet<>();
 
@@ -43,7 +39,8 @@ public class Cliente extends Base{
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
-                ", usuario=" + usuario +
+                ", usuario=" + (usuario != null ? usuario.getUsername() : "null") +
                 '}';
     }
+
 }

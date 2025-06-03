@@ -1,9 +1,6 @@
 package Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ import java.util.Set;
 @SuperBuilder
 public class Pais extends Base{
     private String nombre;
+    @Builder.Default
     private Set<Provincia> provincias = new HashSet<>();
 
     public void addProvincia(Provincia provincia){

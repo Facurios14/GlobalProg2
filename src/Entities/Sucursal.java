@@ -18,6 +18,7 @@ public class Sucursal extends Base{
     private LocalTime horarioCierre;
     private Empresa empresa;
     private Domicilio domicilio;
+    @Builder.Default
     private Set<Promocion> promociones = new HashSet<>();
     private Set<Articulo> articulos = new HashSet<>();
     private Set<Categoria> categorias = new HashSet<>();
@@ -35,6 +36,11 @@ public class Sucursal extends Base{
     @Override
     public String toString() {
         return "Sucursal{" +
-                "nombre='" + nombre +'}';
+                "nombre='" + nombre + '\'' +
+                ", horarioApertura=" + horarioApertura +
+                ", horarioCierre=" + horarioCierre +
+                ", empresa=" + (empresa != null ? empresa.getNombre() : "null") +
+                '}';
     }
+
 }

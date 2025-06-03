@@ -3,17 +3,12 @@ package Entities;
 import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -32,6 +27,7 @@ public class Pedido extends Base{
     private Cliente cliente;
     private Factura factura;
     private Sucursal sucursal;
+    @Builder.Default
     private Set<DetallePedido> detallePedidos = new HashSet<>();
 
     public void addDetallePedido(DetallePedido detallePedido){
@@ -43,14 +39,9 @@ public class Pedido extends Base{
         return "Pedido{" +
                 "horaEstimadaFinalizacion=" + horaEstimadaFinalizacion +
                 ", total=" + total +
-                ", totalCosto=" + totalCosto +
                 ", estado=" + estado +
-                ", tipoEnvio=" + tipoEnvio +
-                ", formaPago=" + formaPago +
-                ", FechaPedido=" + FechaPedido +
-                ", cliente=" + cliente +
-                ", factura=" + factura +
-                ", sucursal=" + sucursal +
+                ", cliente=" + (cliente != null ? cliente.getNombre() : "null") +
                 '}';
     }
+
 }

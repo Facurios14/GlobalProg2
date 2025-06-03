@@ -15,10 +15,10 @@ public class Main {
         ClienteService clienteService = new ClienteServiceImpl();
 
         Cliente cliente = new Cliente();
-        cliente.setNombre("Ana");
-        cliente.setApellido("García");
+        cliente.setNombre("JJ");
+        cliente.setApellido("Lopez");
         cliente.setTelefono("987654321");
-        cliente.setEmail("ana@example.com");
+        cliente.setEmail("jj@gmail.com");
 
         clienteService.registrarCliente(cliente);
         System.out.println("Cliente registrado desde Service.");
@@ -35,10 +35,10 @@ public class Main {
         try (Connection conn = Databaseconnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, "Juan");
-            stmt.setString(2, "Pérez");
+            stmt.setString(1, "JJ");
+            stmt.setString(2, "Lopez");
             stmt.setString(3, "123456789");
-            stmt.setString(4, "juanperez@email.com");
+            stmt.setString(4, "mefuialaB@gmail.com");
 
             stmt.executeUpdate();
             System.out.println("Cliente insertado con éxito.");
@@ -54,6 +54,8 @@ public class Main {
                 .build();
         Sucursal sucursal = Sucursal.builder().nombre("mendoza").build();
         empresa.addSucursal(sucursal);
+        Promocion promocion = Promocion.builder().denominacion("zzz").build();
+        sucursal.addPromocion(promocion);
         ArticuloInsumo articuloInsumo = ArticuloInsumo.builder()
                 .denominacion("Aspiradora")
                 .precioCompra(5.5)
