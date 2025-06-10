@@ -1,9 +1,6 @@
 package Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 
@@ -20,6 +17,7 @@ public abstract class Articulo extends Base{
     protected double precioVenta;
     protected UnidadMedida unidadMedida;
     protected Imagen imagen;
+    @Builder.Default
     protected Set<Promocion> promociones = new HashSet<>();
 
     public void addPromocion(Promocion promocion){

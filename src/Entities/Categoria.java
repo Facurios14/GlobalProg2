@@ -16,9 +16,14 @@ public class Categoria extends Base{
     private Categoria padre;
     @Builder.Default
     private Set<Articulo> articulos = new HashSet<>();
+    private Set<Categoria> subCategorias = new HashSet<>();
 
     public void addArticulo(Articulo articulo){
         this.articulos.add(articulo);
+    }
+
+    public void addsubCategorias(Categoria subCategoria){
+        this.subCategorias.add(subCategoria);
     }
 
     @Override

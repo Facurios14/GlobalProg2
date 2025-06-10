@@ -15,12 +15,7 @@ import java.util.Set;
 @SuperBuilder
 public class Pais extends Base{
     private String nombre;
-    @Builder.Default
-    private Set<Provincia> provincias = new HashSet<>();
 
-    public void addProvincia(Provincia provincia){
-        this.provincias.add(provincia);
-    }
     @Override
     public String toString() {
         return "Pais{" +

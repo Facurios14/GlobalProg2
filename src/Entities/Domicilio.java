@@ -16,17 +16,7 @@ public class Domicilio extends Base{
     private int numero;
     private int cp;
     private Localidad localidad;
-    @Builder.Default
-    private Set<Cliente> clientes = new HashSet<>();
-    private Set<Sucursal> sucursales = new HashSet<>();
 
-    public void addCliente(Cliente cliente){
-        this.clientes.add(cliente);
-    }
-
-    public void addSucursal(Sucursal sucursal){
-        this.sucursales.add(sucursal);
-    }
 
     @Override
     public String toString() {

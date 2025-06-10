@@ -16,7 +16,6 @@ public class ArticuloInsumo extends Articulo{
     private int stockActual;
     private int stockMaximo;
     private boolean esParaElaborar;
-    private Sucursal sucursal;
 
     @Override
     public String toString() {
@@ -25,7 +24,6 @@ public class ArticuloInsumo extends Articulo{
                 ", stockActual=" + stockActual +
                 ", stockMaximo=" + stockMaximo +
                 ", esParaElaborar=" + esParaElaborar +
-                ", sucursal=" + sucursal +
                 '}';
     }
 }

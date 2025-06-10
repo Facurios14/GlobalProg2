@@ -59,7 +59,6 @@ public class Main {
         ArticuloInsumo articuloInsumo = ArticuloInsumo.builder()
                 .denominacion("Aspiradora")
                 .precioCompra(5.5)
-                .sucursal(sucursal)
                 .build();
         System.out.println(articuloInsumo);
     }

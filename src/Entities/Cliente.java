@@ -20,8 +20,10 @@ public class Cliente extends Base{
     private String email;
     private LocalDate fechaNacimiento;
     private Usuario usuario;
+    private Imagen imagen;
     @Builder.Default
     private Set<Pedido> pedidos = new HashSet<>();
+    @Builder.Default
     private Set<Domicilio> domicilios = new HashSet<>();
 
     public void addPedido(Pedido pedido){
